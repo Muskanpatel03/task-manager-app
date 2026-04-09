@@ -26,7 +26,7 @@ app.post("/tasks", (req, res) => {
     createdAt: new Date()
   };
 
-  tasks.push(newTask);
+  tasks.unshift(newTask);
   res.json(newTask);
 });
 
