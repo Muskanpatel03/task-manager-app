@@ -11,7 +11,7 @@ function App() {
     setLoading(true);
     setError("");
     try {
-      const res = await fetch("http://localhost:5000/tasks");
+      const res = await fetch("https://task-manager-app-ogdn.onrender.com/tasks");
       const data = await res.json();
       setTasks(data);
     } catch (err) {
@@ -28,7 +28,7 @@ function App() {
     if (!title.trim()) return;
 
     try {
-      await fetch("http://localhost:5000/tasks", {
+      await fetch("https://task-manager-app-ogdn.onrender.com/tasks", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ title })
@@ -43,7 +43,7 @@ function App() {
 
   const toggleTask = async (id) => {
     try {
-      await fetch(`http://localhost:5000/tasks/${id}`, {
+      await fetch(`https://task-manager-app-ogdn.onrender.com/tasks/${id}`, {
         method: "PATCH"
       });
       fetchTasks();
@@ -54,7 +54,7 @@ function App() {
 
   const deleteTask = async (id) => {
     try {
-      await fetch(`http://localhost:5000/tasks/${id}`, {
+      await fetch(`https://task-manager-app-ogdn.onrender.com/tasks/${id}`, {
         method: "DELETE"
       });
       fetchTasks();
